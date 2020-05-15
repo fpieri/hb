@@ -21,9 +21,14 @@ ENV HEARTBEATSTEP $hbs
 # information de port réseau utile
 EXPOSE 1234/udp 4321/tcp
 
-#ENTRYPOINT ["/entrypoint.sh"]
-#CMD ["/entrypoint.sh", "coucou"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["coucou"]
 
 # autre version sans entrypoint
-CMD ["/entrypoint.sh", "coucou"]
+#CMD ["/entrypoint.sh", "coucou"]
+
+WORKDIR /datas
+
+# on doit créer un mappage de volume pour ce container, accessaible via inpect
+VOLUME /datas
 
